@@ -1,0 +1,55 @@
+{
+  "mesh_path": "/private/tmp/hktex-smpl-inspect/SMPL_male.obj",
+  "mesh_sha256": "2c323fc8082fb7e8cb9d68fb4d7d1843b0614c8b2a040958ae90669bc6e620de",
+  "loader_path": "/private/tmp/hktex-smpl-testrepo/hktex/utils/mesh.py",
+  "loader_sha256": "d70489a6b8ba647df723cfbca9ba7fe7ab7b28cc8b932633ff8d2c369c49ca59",
+  "trimesh_version": "4.11.2",
+  "obj_vertices": 27578,
+  "obj_uv_entries": 28944,
+  "obj_face_sizes": {
+    "4": 27576
+  },
+  "vertices_after_welding": 27578,
+  "triangle_faces": 55152,
+  "components": 1,
+  "component_vertex_counts": [
+    27578
+  ],
+  "watertight": true,
+  "winding_consistent": true,
+  "boundary_edges": 0,
+  "nonmanifold_edges": 0,
+  "nonmanifold_vertices": 0,
+  "nonfinite_vertices": 0,
+  "zero_or_near_zero_area_faces": 0,
+  "duplicate_faces": 0,
+  "min_angle_degrees": 0.2430322631272002,
+  "faces_min_angle_lt1deg": 1,
+  "faces_min_angle_lt5deg": 39,
+  "uv_nonfinite": 0,
+  "uv_degenerate_faces": 0,
+  "uv_range": [
+    0.0073,
+    0.995324
+  ],
+  "uv_face_geometry_max_error": 0.0,
+  "texture_path": "/private/tmp/hktex-smpl-inspect/m_01_alb.002.png",
+  "texture_size": [
+    4096,
+    4096
+  ],
+  "texture_sha256": "d1bed88b502b9cf4c9ad8d642bf4adf89d5aa8c090d74046585e2b127b125e3a",
+  "loaded_texture_matches_map_Kd": true,
+  "texture_rgb_std": [
+    62.78643591653652,
+    53.061447221756296,
+    48.662517304666
+  ],
+  "limits": "Static checks only; no self-intersection, eigen, CUDA tracing, or training validation.",
+  "failures": [],
+  "warnings": [
+    "Very thin triangles: retain tracer checks",
+    "OBJ polygons are triangulated by trimesh"
+  ],
+  "ready_for_smoke": true
+}

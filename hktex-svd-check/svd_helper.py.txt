@@ -1,0 +1,79 @@
+
+
+def _hktex_checked_alignment_svd(matrix):
+    # HKTEX_ALIGNMENT_SVD_GUARD_V1
+    # Preserve the normal path and output dtype. Only retry a failed SVD.
+    import json
+    import os
+    import sys
+    import uuid
+    from datetime import datetime
+    from pathlib import Path
+
+    a = np.asarray(matrix)
+    if a.ndim != 2 or a.shape[0] != a.shape[1] or a.dtype not in (np.dtype('float32'), np.dtype('float64')):
+        raise ValueError(f'Unexpected alignment matrix: shape={a.shape}, dtype={a.dtype}')
+    _hktex_checked_alignment_svd.calls = getattr(_hktex_checked_alignment_svd, 'calls', 0) + 1
+    info = {
+        'alignment_svd_call': _hktex_checked_alignment_svd.calls,
+        'shape': list(a.shape), 'dtype': str(a.dtype),
+        'nonfinite_count': int((~np.isfinite(a)).sum()),
+        'numpy': np.__version__, 'scipy': scipy.__version__, 'python': sys.version,
+    }
+    if info['nonfinite_count'] == 0:
+        try:
+            return scipy.linalg.svd(a)
+        except np.linalg.LinAlgError as exc:
+            info['original_error'] = str(exc)
+    else:
+        info['original_error'] = 'Non-finite alignment matrix; no SVD attempted'
+
+    root = Path(os.environ.get('HKTEX_SVD_DIAG_DIR',
+                               str(Path(__file__).resolve().parents[2] / 'outputs/eigen-svd-diagnostics')))
+    folder = root / (datetime.now().strftime('%Y%m%d-%H%M%S') + '-' + uuid.uuid4().hex[:8])
+    folder.mkdir(parents=True, exist_ok=False)
+    np.save(folder / 'correlation.npy', a, allow_pickle=False)
+    report = folder / 'report.json'
+
+    def save(status):
+        info['status'] = status
+        report.write_text(json.dumps(info, indent=2) + '\n')
+
+    save('original_failed')
+    print(f'[SVD-CHECK] Original SVD failed; diagnostic: {report}', flush=True)
+    if info['nonfinite_count']:
+        save('nonfinite_input')
+        raise FloatingPointError(f'Non-finite alignment input; see {report}')
+
+    # Retry exactly the same finite matrix using double precision and gesvd.
+    # Upcasting cannot recover precision lost during upstream eigensolving.
+    a64 = np.asarray(a, dtype=np.float64)
+    info['max_abs'] = float(np.max(np.abs(a64)))
+    try:
+        u, s, vt = scipy.linalg.svd(a64, lapack_driver='gesvd', check_finite=True)
+        u, s, vt = (x.astype(a.dtype, copy=False) for x in (u, s, vt))
+        if not all(np.isfinite(x).all() for x in (u, s, vt)):
+            raise FloatingPointError('Non-finite fallback SVD output')
+        # Check the values actually returned, including any cast back to float32.
+        u64, s64, vt64 = (x.astype(np.float64) for x in (u, s, vt))
+        scale = max(info['max_abs'], np.finfo(np.float64).tiny)
+        scaled = a64 / scale
+        recon = (u64 * (s64 / scale)) @ vt64
+        relative_error = float(np.linalg.norm(recon - scaled) / max(np.linalg.norm(scaled), 1.0))
+        identity = np.eye(len(s))
+        orth_error = float(max(np.max(np.abs(u64.T @ u64 - identity)),
+                               np.max(np.abs(vt64 @ vt64.T - identity))))
+        info.update(fallback='float64_gesvd', returned_dtype=str(u.dtype),
+                    relative_reconstruction_error=relative_error,
+                    max_orthogonality_error=orth_error,
+                    singular_value_min=float(s.min()), singular_value_max=float(s.max()))
+        tolerance = 5e-5 if a.dtype == np.float32 else 1e-10
+        if not np.isfinite(relative_error + orth_error) or max(relative_error, orth_error) > tolerance:
+            raise ArithmeticError(f'Fallback validation failed: reconstruction={relative_error}, orthogonality={orth_error}')
+        save('fallback_succeeded')
+        print(f'[SVD-CHECK] float64 gesvd passed: reconstruction={relative_error:.3g}, orthogonality={orth_error:.3g}', flush=True)
+        return u, s, vt
+    except Exception as exc:
+        info['fallback_error'] = f'{type(exc).__name__}: {exc}'
+        save('fallback_failed')
+        raise RuntimeError(f'Alignment SVD fallback failed; see {report}') from exc

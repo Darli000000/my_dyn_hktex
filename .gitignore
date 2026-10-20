@@ -10,3 +10,7 @@ test.sh
 src/
 timing_*.txt
 tune_*.txt
+
+*.png
+*.jpg
+*.mp4

@@ -228,11 +228,16 @@ class BaseDensityController(BaseObject):
         sel = torch.where(mask)[0]
         rest = torch.where(~mask)[0]
 
-        kernel_barys = kernel_info["barycentric_coords"][sel]
-        kernel_vert_idx = kernel_info["vert_idx"][sel]
+        # HKTEX_FIX_CURRENT_SPLIT_GEOMETRY_V1
+        # A previous controller may have pruned/reordered kernels this step.
+        # Reconstruct geometry from the current model, not pre-pruning kernel_info.
         kernel_faces = self._model._kernel_face_ids[sel]
         kernel_thresholds = self._model.thresholds[sel]
         kernel_locations = self._model.kernel_locations[sel]
+        kernel_vert_idx = self._mesh.get_face_vertices(kernel_faces)
+        kernel_barys = self._mesh.cartesian_to_barycentric(
+            kernel_locations, kernel_vert_idx
+        )
         kernel_normals = self._mesh.fnorms[kernel_faces]
 
         kernels_direction = eigalbo_interp.barycentric_local_directions_gaussians(
