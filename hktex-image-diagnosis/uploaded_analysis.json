@@ -1,0 +1,326 @@
+{
+  "rows": 1500,
+  "updates_contiguous": true,
+  "windows": [
+    {
+      "start": 1,
+      "end": 250,
+      "mean_l1": 0.09245856681466103,
+      "mean_batch_mse": 0.015974232539534568
+    },
+    {
+      "start": 251,
+      "end": 500,
+      "mean_l1": 0.05833309656381607,
+      "mean_batch_mse": 0.006494710737839341
+    },
+    {
+      "start": 501,
+      "end": 750,
+      "mean_l1": 0.05152098245918751,
+      "mean_batch_mse": 0.005076415350660682
+    },
+    {
+      "start": 751,
+      "end": 1000,
+      "mean_l1": 0.04717351821064949,
+      "mean_batch_mse": 0.004304298139177262
+    },
+    {
+      "start": 1001,
+      "end": 1250,
+      "mean_l1": 0.04575094568729401,
+      "mean_batch_mse": 0.004068479766137898
+    },
+    {
+      "start": 1251,
+      "end": 1500,
+      "mean_l1": 0.04519445741176605,
+      "mean_batch_mse": 0.004001301945187151
+    }
+  ],
+  "gradient_norms": {
+    "_mean_colour": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.047558507282519716
+    },
+    "_kernel_colours": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.0311194090017428
+    },
+    "_angles": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.016410040156915783
+    },
+    "_anisotropies": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.00010253494479760169
+    },
+    "_thresholds": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.03512225179001689
+    },
+    "_sharpnesses": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 8.485264913815627e-05
+    },
+    "_kernel_locations": {
+      "zero_norm_steps": 0,
+      "missing_or_nonfinite": 0,
+      "last240_mean": 0.6954156555235386
+    }
+  },
+  "parameter_statistics": {
+    "_mean_colour": {
+      "count": 3,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": 0.1866185963153839,
+        "p01": 0.18683722466230393,
+        "p10": 0.18880487978458405,
+        "median": 0.19755001366138458,
+        "p90": 0.21087117493152618,
+        "p99": 0.21386843621730806,
+        "max": 0.21420146524906158
+      },
+      "mean": 0.19945669174194336
+    },
+    "_kernel_colours": {
+      "count": 3108,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": -1.0,
+        "p01": -1.0,
+        "p10": -0.5339838027954101,
+        "median": -0.047343939542770386,
+        "p90": 0.0807635396718979,
+        "p99": 0.3052922827005384,
+        "max": 0.6007000207901001
+      },
+      "mean": -0.14437614920684702
+    },
+    "_angles": {
+      "count": 1036,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": 0.009066101163625717,
+        "p01": 0.030108985491096973,
+        "p10": 0.35719577968120575,
+        "median": 1.5723552703857422,
+        "p90": 2.829799175262451,
+        "p99": 3.0964530587196353,
+        "max": 3.131610631942749
+      },
+      "mean": 1.5843459157449369
+    },
+    "_anisotropies": {
+      "count": 1036,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": 1.0,
+        "p01": 2.3130437612533568,
+        "p10": 10.588658809661865,
+        "median": 47.37731742858887,
+        "p90": 88.64906692504883,
+        "p99": 98.43170166015626,
+        "max": 99.80277252197266
+      },
+      "mean": 49.11980434492748
+    },
+    "_thresholds": {
+      "count": 1036,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": 0.6607255935668945,
+        "p01": 0.6797569751739502,
+        "p10": 0.7394516468048096,
+        "median": 0.846183180809021,
+        "p90": 0.9409526288509369,
+        "p99": 0.9770112544298172,
+        "max": 0.9898359775543213
+      },
+      "mean": 0.8436040573943996
+    },
+    "_sharpnesses": {
+      "count": 1036,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": 10.222784042358398,
+        "p01": 12.424514818191529,
+        "p10": 20.43792724609375,
+        "median": 37.07414627075195,
+        "p90": 47.74744987487793,
+        "p99": 49.68730564117432,
+        "max": 49.951927185058594
+      },
+      "mean": 35.59457086504196
+    },
+    "_kernel_locations": {
+      "count": 3108,
+      "nonfinite": 0,
+      "quantiles": {
+        "min": -1.0259655714035034,
+        "p01": -0.9824819731712341,
+        "p10": -0.3638640761375427,
+        "median": 0.0011390879517421126,
+        "p90": 0.3761232644319536,
+        "p99": 0.8569065135717381,
+        "max": 0.9591618180274963
+      },
+      "mean": -0.0019427954910221405
+    }
+  },
+  "negative_colour_boundary_channels": 48,
+  "negative_colour_boundary_kernels": 39,
+  "colours_are_signed_residuals": true,
+  "optimizer_rates": [
+    {
+      "name": "model._angles",
+      "initial_lr": 3.2023612853528906e-05,
+      "final_lr": 2.0014758033455566e-06
+    },
+    {
+      "name": "model._anisotropies",
+      "initial_lr": 0.010974047868033219,
+      "final_lr": 0.0006858779917520762
+    },
+    {
+      "name": "model._kernel_colours",
+      "initial_lr": 0.009976199670585469,
+      "final_lr": 0.0006235124794115918
+    },
+    {
+      "name": "model._mean_colour",
+      "initial_lr": 0.0005115680141210166,
+      "final_lr": 3.197300088256354e-05
+    },
+    {
+      "name": "model._sharpnesses",
+      "initial_lr": 0.0003611429197283173,
+      "final_lr": 2.257143248301983e-05
+    },
+    {
+      "name": "model._thresholds",
+      "initial_lr": 0.0004072274693768998,
+      "final_lr": 2.5451716836056236e-05
+    },
+    {
+      "name": "model._kernel_locations",
+      "initial_lr": 0.001,
+      "final_lr": 1e-07
+    }
+  ],
+  "kernel_transitions": [
+    {
+      "update": 1,
+      "kernels": 1000
+    },
+    {
+      "update": 201,
+      "kernels": 1100
+    },
+    {
+      "update": 401,
+      "kernels": 1102
+    },
+    {
+      "update": 501,
+      "kernels": 1041
+    },
+    {
+      "update": 601,
+      "kernels": 1042
+    },
+    {
+      "update": 1001,
+      "kernels": 1036
+    }
+  ],
+  "uploaded_yaml_trial_dir": "/root/hktex-work/hktex/outputs/smpl-observed-full/male_init05_lr10_20261024-204812-c10df3@20261024-204817",
+  "uploaded_yaml_is_uv_run": true,
+  "current_image_model_config": {
+    "n_sources": 1000,
+    "kernel_dim": 32,
+    "diff_time": 1.1103742416356491e-06,
+    "mass_type": "one",
+    "init_min_threshold": 0.7,
+    "range_enforcement_type": "pgd",
+    "init_kernel_edge_type": "high_skewed",
+    "out_net": false,
+    "normalize_colours": false,
+    "allow_negative_colours": true,
+    "knn_outer_k": 50,
+    "knn_inner_k": 20
+  },
+  "uv_model_config": {
+    "n_sources": 1000,
+    "kernel_dim": 32,
+    "diff_time": 0.06245046192097831,
+    "mass_type": "one",
+    "init_min_threshold": 0.3,
+    "range_enforcement_type": "pgd",
+    "init_kernel_edge_type": "high_skewed",
+    "out_net": false,
+    "normalize_colours": false,
+    "allow_negative_colours": true,
+    "knn_outer_k": 50,
+    "knn_inner_k": 30
+  },
+  "density_events": [
+    {
+      "update": 201,
+      "controller": "ErrorDensificationController",
+      "operation": "clone",
+      "selected": 56,
+      "before": 1000,
+      "after": 1056
+    },
+    {
+      "update": 201,
+      "controller": "ErrorDensificationController",
+      "operation": "split",
+      "selected": 44,
+      "before": 1056,
+      "after": 1100
+    },
+    {
+      "update": 401,
+      "controller": "ErrorDensificationController",
+      "operation": "split",
+      "selected": 2,
+      "before": 1100,
+      "after": 1102
+    },
+    {
+      "update": 501,
+      "controller": "ImportancePruningController",
+      "operation": "_remove_kernels",
+      "selected": 61,
+      "before": 1102,
+      "after": 1041
+    },
+    {
+      "update": 601,
+      "controller": "ErrorDensificationController",
+      "operation": "clone",
+      "selected": 1,
+      "before": 1041,
+      "after": 1042
+    },
+    {
+      "update": 1001,
+      "controller": "ImportancePruningController",
+      "operation": "_remove_kernels",
+      "selected": 6,
+      "before": 1042,
+      "after": 1036
+    }
+  ],
+  "note": "Window metrics are stochastic training batches, not fixed validation or full-image errors. Nonzero group norms do not prove every element has nonzero/correct gradient."
+}

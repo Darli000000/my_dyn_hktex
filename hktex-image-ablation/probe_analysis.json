@@ -1,0 +1,108 @@
+{
+  "checkpoint_matches_uploaded": true,
+  "points": 2048,
+  "lower_y_points": 927,
+  "mid_y": -0.03211867809295654,
+  "all_negative_any": 534,
+  "all_above1_any": 0,
+  "lower_negative_any": 448,
+  "lower_negative_channels": [
+    442,
+    312,
+    57
+  ],
+  "lower_red_green_negative_blue_positive": 249,
+  "all_any_below_minus_005": 503,
+  "weak_coverage_lt_001_count": 138,
+  "effective_kernel_median": 1.491532802581787,
+  "clamp_reconstruction_exact": true,
+  "raw_field_min_by_channel": [
+    -0.7857839465141296,
+    -0.7735820412635803,
+    -0.6269023418426514
+  ],
+  "forward_parity": {
+    "inference_repeat_512": {
+      "abs_difference": {
+        "count": 6144,
+        "nonfinite": 0,
+        "quantiles": {
+          "min": 0.0,
+          "p01": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "mean": 0.0
+      },
+      "point_fraction_max_rgb_diff_gt_1e_4": 0.0,
+      "point_fraction_max_rgb_diff_gt_1e_3": 0.0,
+      "finite": true
+    },
+    "inference_chunk64": {
+      "abs_difference": {
+        "count": 6144,
+        "nonfinite": 0,
+        "quantiles": {
+          "min": 0.0,
+          "p01": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "mean": 0.0
+      },
+      "point_fraction_max_rgb_diff_gt_1e_4": 0.0,
+      "point_fraction_max_rgb_diff_gt_1e_3": 0.0,
+      "finite": true
+    },
+    "trainlike_grad_512": {
+      "abs_difference": {
+        "count": 6144,
+        "nonfinite": 0,
+        "quantiles": {
+          "min": 0.0,
+          "p01": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 1.4901161193847656e-08,
+          "p99": 1.043081283569336e-07,
+          "max": 4.917383193969727e-07
+        },
+        "mean": 5.147740012034774e-09
+      },
+      "point_fraction_max_rgb_diff_gt_1e_4": 0.0,
+      "point_fraction_max_rgb_diff_gt_1e_3": 0.0,
+      "finite": true
+    },
+    "trainlike_grad_64": {
+      "abs_difference": {
+        "count": 6144,
+        "nonfinite": 0,
+        "quantiles": {
+          "min": 0.0,
+          "p01": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 1.4901161193847656e-08,
+          "p99": 1.043081283569336e-07,
+          "max": 4.917383193969727e-07
+        },
+        "mean": 5.147740012034774e-09
+      },
+      "point_fraction_max_rgb_diff_gt_1e_4": 0.0,
+      "point_fraction_max_rgb_diff_gt_1e_3": 0.0,
+      "finite": true
+    }
+  },
+  "limitations": [
+    "Area-uniform surface samples, not image pixels; no UV GT used.",
+    "Forward parity does not validate PRB gradients or scene-level parity.",
+    "No historical eigen cache hash exists for this old checkpoint.",
+    "Small diffusion decay is established; its causal role in error needs controlled training."
+  ]
+}

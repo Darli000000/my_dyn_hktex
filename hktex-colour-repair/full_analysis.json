@@ -1,0 +1,115 @@
+{
+  "status": "complete",
+  "final_eval": {
+    "train": 0.0019411187095101923,
+    "val": 0.0019399176235310733,
+    "test": 0.0018834568133267264
+  },
+  "final_kernels": 1224,
+  "optimization_loss": "linear RGB L1; MSE is an additional metric",
+  "last_windows": [
+    {
+      "start": 4001,
+      "end": 4500,
+      "l1": 0.030933336179703473,
+      "mse": 0.0019419098424259572
+    },
+    {
+      "start": 4501,
+      "end": 5000,
+      "l1": 0.030916514437645672,
+      "mse": 0.0019451870087068529
+    }
+  ],
+  "image_regions": [
+    {
+      "view_index": 0,
+      "region": "foreground",
+      "pixels": 24594,
+      "mse": 0.0011865576962009072,
+      "target_median_rgb": [
+        0.1826733946800232,
+        0.1709316074848175,
+        0.1305713653564453
+      ],
+      "prediction_median_rgb": [
+        0.17645160853862762,
+        0.1626497507095337,
+        0.13836264610290527
+      ],
+      "false_zero_channel_fraction": [
+        0.2242416849638123,
+        0.11092136293404896,
+        0.00187037488818411
+      ]
+    },
+    {
+      "view_index": 0,
+      "region": "image_lower_half_foreground",
+      "pixels": 11206,
+      "mse": 0.0013433565618470311,
+      "target_median_rgb": [
+        0.04057386890053749,
+        0.053920257836580276,
+        0.0978967472910881
+      ],
+      "prediction_median_rgb": [
+        0.00752269197255373,
+        0.05494634807109833,
+        0.10160583257675171
+      ],
+      "false_zero_channel_fraction": [
+        0.46501873996073534,
+        0.22014991968588257,
+        0.0040157058718543635
+      ]
+    },
+    {
+      "view_index": 1,
+      "region": "foreground",
+      "pixels": 21516,
+      "mse": 0.0013785668415948749,
+      "target_median_rgb": [
+        0.16446202993392944,
+        0.13323915004730225,
+        0.119267039000988
+      ],
+      "prediction_median_rgb": [
+        0.1623426079750061,
+        0.13834232091903687,
+        0.12263036519289017
+      ],
+      "false_zero_channel_fraction": [
+        0.2717512548800892,
+        0.13334262874140174,
+        0.0081799591002045
+      ]
+    },
+    {
+      "view_index": 1,
+      "region": "image_lower_half_foreground",
+      "pixels": 11185,
+      "mse": 0.0016152036841958761,
+      "target_median_rgb": [
+        0.04017340764403343,
+        0.05376258119940758,
+        0.09840904921293259
+      ],
+      "prediction_median_rgb": [
+        0.0023424113169312477,
+        0.0520593635737896,
+        0.10046885907649994
+      ],
+      "false_zero_channel_fraction": [
+        0.48126955744300404,
+        0.23316942333482343,
+        0.009745194456861868
+      ]
+    }
+  ],
+  "notes": [
+    "Image lower half is a screen-space region, not a semantic pants segmentation.",
+    "Rendered near-zero pixels with nonzero GT are observed; new surface clamp statistics are measured at repair startup.",
+    "Repair is a controlled new objective, not a proven fix or original-paper reproduction."
+  ]
+}
