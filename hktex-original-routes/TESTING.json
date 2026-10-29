@@ -1,0 +1,22 @@
+{
+  "status": "CPU checks passed; GPU validation pending",
+  "source_files_pinned": 120,
+  "checked_main_commit": "b02d07ee7e8a7a0d127ee6ef0dd74bdda906b51d",
+  "checks": [
+    "author UV/ray YAML byte-equal to inspected upstream snapshot",
+    "actual MitsubaRayTrainer AST transformation compiles",
+    "12 update-budget cases: steps 4/50/5000; ray batches per epoch 1/7/64/6001",
+    "optimizer/scheduler/observer/loss/gradient-check counts equal exact budget",
+    "changed loop shape fails closed",
+    "comparison weighted MSE and per-view MSE",
+    "comparison image dimensions and unequal GT/protocol rejection",
+    "sRGB reflectance conversion boundaries and no input mutation",
+    "all Python scripts compile and shell syntax passes"
+  ],
+  "not_run": [
+    "CUDA training",
+    "Mitsuba/Dr.Jit backward",
+    "DiGeo motion on SMPL",
+    "full native CUDA rendering"
+  ]
+}
