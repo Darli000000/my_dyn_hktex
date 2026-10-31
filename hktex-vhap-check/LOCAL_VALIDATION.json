@@ -1,0 +1,55 @@
+{
+  "reference_commit": "de678ce57634fa51b5baa0e1c314eb0282fd874e",
+  "cpu_regression_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "syntax_checks": {
+    "python": "passed",
+    "bash": "passed"
+  },
+  "real_frame_cpu_run": {
+    "frame": 0,
+    "cameras": 16,
+    "status": "geometry_only_inconclusive",
+    "max_reprojection_px": 1.1829895157688952e-05,
+    "topology": {
+      "vertices": 5143,
+      "faces": 10144,
+      "components": 5,
+      "component_vertices": [
+        3931,
+        546,
+        546,
+        60,
+        60
+      ],
+      "boundary_edges": 130,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "bounds": [
+        [
+          -0.09916041046380997,
+          -0.19050712883472443,
+          -0.21296750009059906
+        ],
+        [
+          0.11184666305780411,
+          0.13833323121070862,
+          0.056919172406196594
+        ]
+      ],
+      "area": 0.19509757357081525,
+      "minimum_triangle_area": 2.335997727059687e-08,
+      "geometry_modified": false,
+      "self_intersections_checked": false,
+      "vertex_manifoldness_checked": false
+    }
+  },
+  "not_tested_locally": [
+    "VHAP/FLAME anatomical region extraction (requires licensed assets in server environment)",
+    "CUDA/Mitsuba/digeo/spectral kernels/optimizer execution",
+    "Actual photo fitting"
+  ],
+  "interpretation": "CPU reprojection is numerical self-consistency, not a measurement of real geometry alignment. Full-mesh masks are diagnostic only."
+}

@@ -205,6 +205,8 @@ class GPUGeodesicTracer(GeodesicTracer):
         max_iterations: Optional[int] = None
         avoid_holes: bool = True
         n_debug_traces: int = 10
+        # Negative keeps DiGeo's default. Small-scale meshes may need an explicit tolerance.
+        eps: float = -1.0
 
     cfg: Config
 
@@ -265,6 +267,7 @@ class GPUGeodesicTracer(GeodesicTracer):
             debug=False,
             print_warnings=True,
             avoid_holes=self.cfg.avoid_holes,
+            eps=self.cfg.eps,
         )
 
         new_coords = end_meshpoints.interpolate(self._digeo_mesh)

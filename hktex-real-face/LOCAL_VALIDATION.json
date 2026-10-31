@@ -1,0 +1,51 @@
+{
+  "package": "hktex-real-face-eyes-v1",
+  "base_repository_commit": "de678ce57634fa51b5baa0e1c314eb0282fd874e",
+  "cpu_tests_passed": 6,
+  "python_syntax": "passed",
+  "shell_syntax": "passed",
+  "gpu_executed_locally": false,
+  "real_data_cpu_status": "cpu_checks_passed",
+  "views": 16,
+  "mesh": {
+    "vertices": 5143,
+    "faces": 10144,
+    "components": 5,
+    "component_vertices": [
+      3931,
+      546,
+      546,
+      60,
+      60
+    ],
+    "boundary_edges": 130,
+    "nonmanifold_edges": 0,
+    "inconsistent_winding_edges": 0,
+    "bounds": [
+      [
+        -0.09916041046380997,
+        -0.19050712883472443,
+        -0.21296750009059906
+      ],
+      [
+        0.11184666305780411,
+        0.13833323121070862,
+        0.056919172406196594
+      ]
+    ],
+    "area": 0.19509757357081525,
+    "minimum_triangle_area": 2.335997727059687e-08,
+    "geometry_modified": false,
+    "self_intersections_checked": false,
+    "vertex_manifoldness_checked": false
+  },
+  "all_candidate_pixels": 862932,
+  "training_region_pixels": {
+    "base_face": 542328,
+    "eye_surround": 200778,
+    "left_eye": 3925,
+    "right_eye": 3309
+  },
+  "max_cpu_self_reprojection_px": 8.148068161517585e-06,
+  "note": "Self-reprojection checks camera arithmetic, not empirical mesh-to-photo alignment. Actual CUDA tracer, field support, gradients and training are checked on the server."
+}
