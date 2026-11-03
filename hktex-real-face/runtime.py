@@ -57,6 +57,11 @@ def make_model(repo,cache_root,g,out):
     cfg.model.n_sources=5000;cfg.point_batching=512
     cfg.tracer.eps=1e-6;cfg.tracer.avoid_holes=False;cfg.tracer.max_iterations=256
     cfg.eigen_albo.use_precomputed=True;cfg.eigen_albo.error_if_not_precomputed=False
+    
+    cfg.eigen_albo.faiss.distance_impl = "naive"
+    cfg.eigen_albo.faiss.build_db_norm = False
+    cfg.eigen_albo.faiss.compile_distances = False
+    
     fingerprints={str(p.relative_to(repo)):sha(p) for p in sorted((repo/'hktex').rglob('*.py'))}
     eigen=OmegaConf.to_container(cfg.eigen_albo,resolve=True);eigen.pop('mesh_path',None)
     geomhash=hashlib.sha256(g['vertices'].tobytes()+g['faces'].tobytes()+g['vertex_normals'].tobytes()).hexdigest()

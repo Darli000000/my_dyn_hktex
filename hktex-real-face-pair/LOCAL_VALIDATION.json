@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-31",
+  "github_revision_reviewed": "035736a25c736a790d8799c89703cc664278fba0",
+  "cpu_tests": {
+    "passed": 9,
+    "torch": "2.5.1",
+    "uses_original_adc_mutation_methods": true,
+    "geometry_fixture": "disconnected planar triangles; synthetic tracer"
+  },
+  "entrypoint_checks": [
+    "Python compilation",
+    "bash syntax",
+    "experiment --help",
+    "render --help",
+    "five-stage sequential orchestration with mock conda",
+    "smoke failure prevents both full runs with mock conda"
+  ],
+  "gpu_training_executed_locally": false,
+  "actual_cuda_validation": "run_pair.sh setup and smoke run on server before full experiments"
+}

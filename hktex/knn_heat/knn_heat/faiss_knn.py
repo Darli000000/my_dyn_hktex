@@ -250,7 +250,26 @@ class FaissGpuFlatIndex:
         if k > self._n:
             raise ValueError("k cannot exceed database size")
 
-        distances, indices = self._index.search(queries, int(k))
+        # EDIT: Use stable sort for diagnostics if HKTEX_STABLE_KNN=1
+        # distances, indices = self._index.search(queries, int(k))
+        # return distances, indices
+        if os.environ.get("HKTEX_STABLE_KNN") == "1":
+            if self.config.metric != "l2":
+                raise ValueError("Stable diagnostic search requires metric=l2")
+            with torch.no_grad():
+                all_d2 = torch.cdist(
+                    queries.detach().float(),
+                    self._db.detach().float(),
+                    p=2,
+                    compute_mode="donot_use_mm_for_euclid_dist",
+                ).square()
+                indices = torch.argsort(
+                    all_d2, dim=1, stable=True
+                )[:, :int(k)]
+                distances = all_d2.gather(1, indices)
+        else:
+            distances, indices = self._index.search(queries, int(k))
+
         return distances, indices
 
     def knn_distances(
