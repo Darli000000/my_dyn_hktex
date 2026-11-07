@@ -1,0 +1,27 @@
+{
+  "steps": 5000,
+  "seed": 0,
+  "initial_kernels": 5000,
+  "evaluate_every": 500,
+  "log_every": 50,
+  "adam_lr_scale": 0.3,
+  "geo_lr": 0.001,
+  "lr_min_factor": 0.1,
+  "adc": {
+    "start": 1000,
+    "stop_inclusive": 4000,
+    "densify_interval": 200,
+    "prune_interval": 400,
+    "error_threshold": 0.02,
+    "selection_threshold": 0.001,
+    "contribution_threshold": 0.01,
+    "size_threshold": 0.18,
+    "max_densify_ratio": 0.05,
+    "max_prune_ratio": 0.05,
+    "max_kernels": 10000,
+    "min_kernels": 2500,
+    "min_head_kernels": 512,
+    "min_other_component_kernels": 32,
+    "split_radius_in_median_edges": 1.0
+  }
+}
